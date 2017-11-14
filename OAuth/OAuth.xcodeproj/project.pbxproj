@@ -7,40 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C26CF481FB39D180097D5FA /* OAuthCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C26CF461FB39D180097D5FA /* OAuthCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C26CF491FB39D180097D5FA /* OAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C26CF471FB39D180097D5FA /* OAuthCredential.m */; };
+		8C26CF501FB39E730097D5FA /* OAuthClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C26CF4E1FB39E730097D5FA /* OAuthClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C26CF511FB39E730097D5FA /* OAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C26CF4F1FB39E730097D5FA /* OAuthClient.m */; };
+		8CEB4FE21FB77146009A4A21 /* OAuthConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */; };
+		8CEB4FE31FB77146009A4A21 /* OAuthConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */; };
 		8CFEF6461FB2ACD6000FD85A /* OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFEF6441FB2ACD5000FD85A /* OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CFEF6541FB2ADAD000FD85A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEF6531FB2ADAD000FD85A /* AppDelegate.m */; };
-		8CFEF6571FB2ADAD000FD85A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEF6561FB2ADAD000FD85A /* ViewController.m */; };
-		8CFEF65A1FB2ADAE000FD85A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFEF6581FB2ADAE000FD85A /* Main.storyboard */; };
-		8CFEF65C1FB2ADAE000FD85A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CFEF65B1FB2ADAE000FD85A /* Assets.xcassets */; };
-		8CFEF65F1FB2ADAE000FD85A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFEF65D1FB2ADAE000FD85A /* LaunchScreen.storyboard */; };
-		8CFEF6621FB2ADAE000FD85A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEF6611FB2ADAE000FD85A /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C26CF461FB39D180097D5FA /* OAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthCredential.h; sourceTree = "<group>"; };
+		8C26CF471FB39D180097D5FA /* OAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthCredential.m; sourceTree = "<group>"; };
+		8C26CF4E1FB39E730097D5FA /* OAuthClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthClient.h; sourceTree = "<group>"; };
+		8C26CF4F1FB39E730097D5FA /* OAuthClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthClient.m; sourceTree = "<group>"; };
+		8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConfiguration.h; sourceTree = "<group>"; };
+		8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthConfiguration.m; sourceTree = "<group>"; };
 		8CFEF6411FB2ACD4000FD85A /* OAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFEF6441FB2ACD5000FD85A /* OAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuth.h; sourceTree = "<group>"; };
 		8CFEF6451FB2ACD6000FD85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CFEF6501FB2ADAC000FD85A /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CFEF6521FB2ADAD000FD85A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8CFEF6531FB2ADAD000FD85A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8CFEF6551FB2ADAD000FD85A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8CFEF6561FB2ADAD000FD85A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8CFEF6591FB2ADAE000FD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8CFEF65B1FB2ADAE000FD85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8CFEF65E1FB2ADAE000FD85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8CFEF6601FB2ADAE000FD85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CFEF6611FB2ADAE000FD85A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8CFEF63D1FB2ACD4000FD85A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8CFEF64D1FB2ADAC000FD85A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				8CFEF6431FB2ACD5000FD85A /* OAuth */,
-				8CFEF6511FB2ADAD000FD85A /* Example */,
 				8CFEF6421FB2ACD4000FD85A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				8CFEF6411FB2ACD4000FD85A /* OAuth.framework */,
-				8CFEF6501FB2ADAC000FD85A /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,25 +59,15 @@
 			isa = PBXGroup;
 			children = (
 				8CFEF6441FB2ACD5000FD85A /* OAuth.h */,
+				8C26CF4E1FB39E730097D5FA /* OAuthClient.h */,
+				8C26CF4F1FB39E730097D5FA /* OAuthClient.m */,
+				8C26CF461FB39D180097D5FA /* OAuthCredential.h */,
+				8C26CF471FB39D180097D5FA /* OAuthCredential.m */,
+				8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */,
+				8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */,
 				8CFEF6451FB2ACD6000FD85A /* Info.plist */,
 			);
 			path = OAuth;
-			sourceTree = "<group>";
-		};
-		8CFEF6511FB2ADAD000FD85A /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				8CFEF6521FB2ADAD000FD85A /* AppDelegate.h */,
-				8CFEF6531FB2ADAD000FD85A /* AppDelegate.m */,
-				8CFEF6551FB2ADAD000FD85A /* ViewController.h */,
-				8CFEF6561FB2ADAD000FD85A /* ViewController.m */,
-				8CFEF6581FB2ADAE000FD85A /* Main.storyboard */,
-				8CFEF65B1FB2ADAE000FD85A /* Assets.xcassets */,
-				8CFEF65D1FB2ADAE000FD85A /* LaunchScreen.storyboard */,
-				8CFEF6601FB2ADAE000FD85A /* Info.plist */,
-				8CFEF6611FB2ADAE000FD85A /* main.m */,
-			);
-			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,7 +77,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C26CF501FB39E730097D5FA /* OAuthClient.h in Headers */,
+				8CEB4FE21FB77146009A4A21 /* OAuthConfiguration.h in Headers */,
 				8CFEF6461FB2ACD6000FD85A /* OAuth.h in Headers */,
+				8C26CF481FB39D180097D5FA /* OAuthCredential.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,23 +105,6 @@
 			productReference = 8CFEF6411FB2ACD4000FD85A /* OAuth.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8CFEF64F1FB2ADAC000FD85A /* Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8CFEF6631FB2ADAE000FD85A /* Build configuration list for PBXNativeTarget "Example" */;
-			buildPhases = (
-				8CFEF64C1FB2ADAC000FD85A /* Sources */,
-				8CFEF64D1FB2ADAC000FD85A /* Frameworks */,
-				8CFEF64E1FB2ADAC000FD85A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Example;
-			productName = Example;
-			productReference = 8CFEF6501FB2ADAC000FD85A /* Example.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,10 +115,6 @@
 				ORGANIZATIONNAME = "Mark Gage";
 				TargetAttributes = {
 					8CFEF6401FB2ACD4000FD85A = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-					};
-					8CFEF64F1FB2ADAC000FD85A = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -175,7 +134,6 @@
 			projectRoot = "";
 			targets = (
 				8CFEF6401FB2ACD4000FD85A /* OAuth */,
-				8CFEF64F1FB2ADAC000FD85A /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -188,16 +146,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CFEF64E1FB2ADAC000FD85A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CFEF65F1FB2ADAE000FD85A /* LaunchScreen.storyboard in Resources */,
-				8CFEF65C1FB2ADAE000FD85A /* Assets.xcassets in Resources */,
-				8CFEF65A1FB2ADAE000FD85A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -205,39 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8CFEF64C1FB2ADAC000FD85A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CFEF6571FB2ADAD000FD85A /* ViewController.m in Sources */,
-				8CFEF6621FB2ADAE000FD85A /* main.m in Sources */,
-				8CFEF6541FB2ADAD000FD85A /* AppDelegate.m in Sources */,
+				8C26CF491FB39D180097D5FA /* OAuthCredential.m in Sources */,
+				8C26CF511FB39E730097D5FA /* OAuthClient.m in Sources */,
+				8CEB4FE31FB77146009A4A21 /* OAuthConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8CFEF6581FB2ADAE000FD85A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CFEF6591FB2ADAE000FD85A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8CFEF65D1FB2ADAE000FD85A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CFEF65E1FB2ADAE000FD85A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8CFEF6471FB2ACD6000FD85A /* Debug */ = {
@@ -390,34 +312,6 @@
 			};
 			name = Release;
 		};
-		8CFEF6641FB2ADAE000FD85A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 762W2U8JVP;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gage.framework.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8CFEF6651FB2ADAE000FD85A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 762W2U8JVP;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gage.framework.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -435,15 +329,6 @@
 			buildConfigurations = (
 				8CFEF64A1FB2ACD6000FD85A /* Debug */,
 				8CFEF64B1FB2ACD6000FD85A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8CFEF6631FB2ADAE000FD85A /* Build configuration list for PBXNativeTarget "Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8CFEF6641FB2ADAE000FD85A /* Debug */,
-				8CFEF6651FB2ADAE000FD85A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
