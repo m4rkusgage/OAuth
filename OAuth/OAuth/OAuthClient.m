@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <UserNotifications/UserNotifications.h>
+#import <CommonCrypto/CommonHMAC.h>
 #import "OAuthClient.h"
-#import "Constants.h"
-#import "NSMutableURLRequest+OAuth.h"
 #import "OAuthCredential.h"
 #import "OAuthConfiguration.h"
-#import <CommonCrypto/CommonHMAC.h>
+#import "NSDictionary+OAuth.h"
+#import "NSString+OAuth.h"
 
 @interface OAuthClient ()
 @property (strong, nonatomic) OAuthCredential *credential;
@@ -124,7 +123,7 @@
 
 - (void)authorizedRequestPath:(NSString *)requestPath forHTTPMethod:(NSString *)httpMethod extraParameters:(NSDictionary *)extraParameters completion:(Completion)completion {
     
-    NSString *requestString = [NSString stringWithFormat:@"%@%@?%@",self.configuration.baseURL,requestPath, [self stringFromParamDictionary:extraParameters]];
+    NSString *requestString = [NSString stringWithFormat:@"%@%@?%@",self.configuration.baseURL,requestPath, [NSString stringFromDictionary:extraParameters]];
 
     NSURLRequest *request = [self authorizedRequestWithURL:[NSURL URLWithString:requestString] forHTTPMethod:httpMethod extraAuthParamaters:nil];
     
@@ -198,8 +197,8 @@
 
 - (NSDictionary *)authrizationParamatersWithExtraParameters:(NSDictionary *)extraParameter {
     NSMutableDictionary *authParams = [@{@"oauth_consumer_key" : [self.credential consumerKey],
-                                         @"oauth_nonce" : [self nonce],
-                                         @"oauth_timestamp" : [self timestamp],
+                                         @"oauth_nonce" : [NSString nonce],
+                                         @"oauth_timestamp" : [NSString timestampString],
                                          @"oauth_version" : @"1.0",
                                          @"oauth_signature_method" : @"HMAC-SHA1"} mutableCopy];
     
@@ -245,8 +244,8 @@
     {
         NSMutableString *pairStr = [NSMutableString string];
         
-        NSString *encKey = [self urlEncodedString:key];
-        NSString *encValue = [self urlEncodedString:[tmpDict objectForKey:key]];
+        NSString *encKey = [NSString stringFromUrlEncodedString:key];
+        NSString *encValue = [NSString stringFromUrlEncodedString:[tmpDict objectForKey:key]];
         
         [pairStr appendString:encKey];
         [pairStr appendString:@"=\""];
@@ -269,7 +268,7 @@
     
     // parameters in the URL query string need to be considered for the signature
     if ([query length]) {
-        [extraParams addEntriesFromDictionary:[self dictionaryFromQueryString:query]];
+        [extraParams addEntriesFromDictionary:[NSDictionary dictionaryFromQueryString:query]];
     }
     
     if ([request.HTTPMethod isEqualToString:@"POST"] && [request.HTTPBody length]) {
@@ -278,7 +277,7 @@
         if ([contentType isEqualToString:@"application/x-www-form-urlencoded"]) {
             NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
             
-            [extraParams addEntriesFromDictionary:[self dictionaryFromQueryString:bodyString]];
+            [extraParams addEntriesFromDictionary:[NSDictionary dictionaryFromQueryString:bodyString]];
         } else {
             NSLog(@"Content-Type %@ is not what we'd expect for an OAuth-authenticated POST with a body", contentType);
         }
@@ -287,63 +286,15 @@
     return [extraParams copy];
 }
 
-- (NSDictionary *)dictionaryFromQueryString:(NSString *)string {
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    NSArray *parameters = [string componentsSeparatedByString:@"&"];
-    
-    for (NSString *parameter in parameters) {
-        NSArray *parts = [parameter componentsSeparatedByString:@"="];
-        NSString *key = [[parts objectAtIndex:0] stringByRemovingPercentEncoding];
-        
-        if ([parts count] > 1) {
-            id value = [[parts objectAtIndex:1] stringByRemovingPercentEncoding];
-            [result setObject:value forKey:key];
-        }
-    }
-    return result;
-}
-
-- (NSString *)timestamp {
-    NSTimeInterval t = [[NSDate date] timeIntervalSince1970];
-    return [NSString stringWithFormat:@"%u", (int)t];
-}
-
-- (NSString *)nonce {
-    NSUUID *uuid = [NSUUID UUID];
-    return [uuid UUIDString];
-}
-
-- (NSString *)urlEncodedString:(NSString *)string {
-    NSMutableCharacterSet *chars = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
-    [chars removeCharactersInString:@"!*'();:@&=+$,/?%#[]"];
-    
-    return     [string stringByAddingPercentEncodingWithAllowedCharacters:chars];
-}
-
-- (NSString *)stringFromParamDictionary:(NSDictionary *)dictionary {
-    NSMutableArray *keyValuePairs = [NSMutableArray array];
-    NSArray *sortedKeys = [[dictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
-    
-    for (NSString *key in sortedKeys) {
-        NSString *encKey = [self urlEncodedString:key];
-        NSString *encValue = [self urlEncodedString:[dictionary objectForKey:key]];
-        
-        NSString *pair = [NSString stringWithFormat:@"%@=%@", encKey, encValue];
-        [keyValuePairs addObject:pair];
-    }
-    
-    return [keyValuePairs componentsJoinedByString:@"&"];
-}
-
 - (NSString *)signatureForMethod:(NSString *)method scheme:(NSString *)scheme host:(NSString *)host path:(NSString *)path signatureParams:(NSDictionary *)signatureParams
 {
-    NSString *authParamString = [self stringFromParamDictionary:signatureParams];
+    NSString *authParamString = [NSString stringFromDictionary:signatureParams];
     NSString *signatureBase = [NSString stringWithFormat:@"%@&%@%%3A%%2F%%2F%@%@&%@",
                                [method uppercaseString],
                                [scheme lowercaseString],
-                               [self urlEncodedString:[host lowercaseString]],
-                               [self urlEncodedString:path],
-                               [self urlEncodedString:authParamString]];
+                               [NSString stringFromUrlEncodedString:[host lowercaseString]],
+                               [NSString stringFromUrlEncodedString:path],
+                               [NSString stringFromUrlEncodedString:authParamString]];
     
     NSString *signatureSecret = [NSString stringWithFormat:@"%@&%@", self.credential.consumerSecret, self.credential.accessTokenSecret ?: @""];
     NSData *sigbase = [signatureBase dataUsingEncoding:NSUTF8StringEncoding];

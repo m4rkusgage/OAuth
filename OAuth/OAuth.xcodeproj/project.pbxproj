@@ -11,6 +11,10 @@
 		8C26CF491FB39D180097D5FA /* OAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C26CF471FB39D180097D5FA /* OAuthCredential.m */; };
 		8C26CF501FB39E730097D5FA /* OAuthClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C26CF4E1FB39E730097D5FA /* OAuthClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C26CF511FB39E730097D5FA /* OAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C26CF4F1FB39E730097D5FA /* OAuthClient.m */; };
+		8CE45A111FBB8FC5001C034A /* NSString+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE45A0F1FBB8FC5001C034A /* NSString+OAuth.h */; };
+		8CE45A121FBB8FC5001C034A /* NSString+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A101FBB8FC5001C034A /* NSString+OAuth.m */; };
+		8CE45A151FBB8FEE001C034A /* NSDictionary+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE45A131FBB8FEE001C034A /* NSDictionary+OAuth.h */; };
+		8CE45A161FBB8FEE001C034A /* NSDictionary+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A141FBB8FEE001C034A /* NSDictionary+OAuth.m */; };
 		8CEB4FE21FB77146009A4A21 /* OAuthConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */; };
 		8CEB4FE31FB77146009A4A21 /* OAuthConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */; };
 		8CFEF6461FB2ACD6000FD85A /* OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFEF6441FB2ACD5000FD85A /* OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,6 +25,10 @@
 		8C26CF471FB39D180097D5FA /* OAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthCredential.m; sourceTree = "<group>"; };
 		8C26CF4E1FB39E730097D5FA /* OAuthClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthClient.h; sourceTree = "<group>"; };
 		8C26CF4F1FB39E730097D5FA /* OAuthClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthClient.m; sourceTree = "<group>"; };
+		8CE45A0F1FBB8FC5001C034A /* NSString+OAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+OAuth.h"; path = "OAuth/Categories/NSString+OAuth.h"; sourceTree = SOURCE_ROOT; };
+		8CE45A101FBB8FC5001C034A /* NSString+OAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+OAuth.m"; path = "OAuth/Categories/NSString+OAuth.m"; sourceTree = SOURCE_ROOT; };
+		8CE45A131FBB8FEE001C034A /* NSDictionary+OAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+OAuth.h"; path = "OAuth/Categories/NSDictionary+OAuth.h"; sourceTree = SOURCE_ROOT; };
+		8CE45A141FBB8FEE001C034A /* NSDictionary+OAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+OAuth.m"; path = "OAuth/Categories/NSDictionary+OAuth.m"; sourceTree = SOURCE_ROOT; };
 		8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConfiguration.h; sourceTree = "<group>"; };
 		8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthConfiguration.m; sourceTree = "<group>"; };
 		8CFEF6411FB2ACD4000FD85A /* OAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CE45A0E1FBB8F8E001C034A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8CE45A0F1FBB8FC5001C034A /* NSString+OAuth.h */,
+				8CE45A101FBB8FC5001C034A /* NSString+OAuth.m */,
+				8CE45A131FBB8FEE001C034A /* NSDictionary+OAuth.h */,
+				8CE45A141FBB8FEE001C034A /* NSDictionary+OAuth.m */,
+			);
+			name = Categories;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		8CFEF6371FB2ACD1000FD85A = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,7 @@
 				8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */,
 				8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */,
 				8CFEF6451FB2ACD6000FD85A /* Info.plist */,
+				8CE45A0E1FBB8F8E001C034A /* Categories */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -80,6 +101,8 @@
 				8C26CF501FB39E730097D5FA /* OAuthClient.h in Headers */,
 				8CEB4FE21FB77146009A4A21 /* OAuthConfiguration.h in Headers */,
 				8CFEF6461FB2ACD6000FD85A /* OAuth.h in Headers */,
+				8CE45A151FBB8FEE001C034A /* NSDictionary+OAuth.h in Headers */,
+				8CE45A111FBB8FC5001C034A /* NSString+OAuth.h in Headers */,
 				8C26CF481FB39D180097D5FA /* OAuthCredential.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +178,8 @@
 			files = (
 				8C26CF491FB39D180097D5FA /* OAuthCredential.m in Sources */,
 				8C26CF511FB39E730097D5FA /* OAuthClient.m in Sources */,
+				8CE45A161FBB8FEE001C034A /* NSDictionary+OAuth.m in Sources */,
+				8CE45A121FBB8FC5001C034A /* NSString+OAuth.m in Sources */,
 				8CEB4FE31FB77146009A4A21 /* OAuthConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
