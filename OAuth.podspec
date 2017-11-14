@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OAuth"
+  s.module_name  = "MGOAuth"
   s.version      = "0.1.0"
   s.summary      = "OAuth 1.0 implementation in Objective-C"
 
@@ -88,8 +89,8 @@ s.author             = { "Mark Gage" => "markgage86@gmail.com" }
   #  Not including the public_header_files will make all headers public.
   #
 
-s.source_files  = "OAuth", "OAuth/OAuth/*.{h,m}"
-s.source_files  = "OAuth/Categories", "OAuth/OAuth/Categories/*.{h,m}"
+s.source_files  = "MGOAuth", "OAuth/OAuth/*.{h,m}"
+s.source_files  = "MGOAuth/Categories", "OAuth/OAuth/Categories/*.{h,m}"
 # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
