@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "OAuth 1.0 implementation in Objective-C"
+  s.description  = "OAuth 1.0 implementation in Objective-C, currently only supporting oAuth 1.0"
   s.homepage     = "https://github.com/m4rkusgage/OAuth"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -88,9 +88,9 @@ s.author             = { "Mark Gage" => "markgage86@gmail.com" }
   #  Not including the public_header_files will make all headers public.
   #
 
-s.source_files  = "OAuth", "OAuth/*.{h,m}"
-s.source_files  = "OAuth/Categories", "OAuth/Categories/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+s.source_files  = "OAuth", "OAuth/OAuth/*.{h,m}"
+s.source_files  = "OAuth/Categories", "OAuth/OAuth/Categories/*.{h,m}"
+# s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
