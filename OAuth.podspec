@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OAuth"
-  s.module_name  = "MGOAuth"
-  s.version      = "0.1.1"
+  s.module_name  = "OAuth"
+  s.version      = "0.1.2"
   s.summary      = "OAuth 1.0 implementation in Objective-C"
 
   # This description is used to generate tags and improve search results.
@@ -89,8 +89,8 @@ s.author             = { "Mark Gage" => "markgage86@gmail.com" }
   #  Not including the public_header_files will make all headers public.
   #
 
-s.source_files  = "MGOAuth", "OAuth/OAuth/*.{h,m}"
-s.source_files  = "MGOAuth/Categories", "OAuth/OAuth/Categories/*.{h,m}"
+s.source_files  = "OAuth/OAuth/**/*.{h,m}"
+
 # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
