@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "OAuth"
   s.module_name  = "OAuth"
-  s.version      = "0.1.2"
+  s.version      = "0.4.0"
   s.summary      = "OAuth 1.0 implementation in Objective-C"
 
   # This description is used to generate tags and improve search results.
