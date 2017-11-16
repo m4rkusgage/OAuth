@@ -17,4 +17,5 @@
 
 - (instancetype)initWithBaseURL:(NSString *)baseURL;
 - (void)setRequestTokenPath:(NSString *)requestTokenPath authorizationPath:(NSString *)authorizationPath accessTokenPath:(NSString *)accessTokenPath;
+
 @end

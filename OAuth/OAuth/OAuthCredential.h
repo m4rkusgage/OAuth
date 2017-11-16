@@ -12,17 +12,13 @@
 
 @property (copy, nonatomic, readonly) NSString *consumerKey;
 @property (copy, nonatomic, readonly) NSString *consumerSecret;
-@property (copy, nonatomic, readonly) NSString *requestToken;
-@property (copy, nonatomic, readonly) NSString *requestTokenSecret;
-@property (strong, nonatomic) NSString *accessToken;
-@property (strong, nonatomic) NSString *accessTokenSecret;
-@property (strong, nonatomic) NSString *tokenType;
-@property (strong, nonatomic) NSString *refreshToken;
+@property (copy, nonatomic, readonly) NSString *token;
+@property (copy, nonatomic, readonly) NSString *tokenSecret;
 @property (strong, nonatomic) NSDate *expirationDate;
 
 - (instancetype)initWithComsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret;
 - (void)setRequestToken:(NSString *)requestToken requestTokenSecret:(NSString *)requestTokenSecret;
-
+- (void)setAccessToken:(NSString *)acessToken accessTokenSecret:(NSString *)accessTokenSecret;
 - (BOOL)isExpired;
 
 @end

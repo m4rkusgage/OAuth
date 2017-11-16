@@ -15,10 +15,42 @@
 		8CE45A1D1FBB97FA001C034A /* NSDictionary+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE45A191FBB97F9001C034A /* NSDictionary+OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CE45A1E1FBB97FA001C034A /* NSString+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE45A1A1FBB97FA001C034A /* NSString+OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CE45A1F1FBB97FA001C034A /* NSString+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A1B1FBB97FA001C034A /* NSString+OAuth.m */; };
+		8CE45A281FBBC8D3001C034A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A271FBBC8D3001C034A /* AppDelegate.m */; };
+		8CE45A2B1FBBC8D4001C034A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A2A1FBBC8D4001C034A /* ViewController.m */; };
+		8CE45A2E1FBBC8D4001C034A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE45A2C1FBBC8D4001C034A /* Main.storyboard */; };
+		8CE45A301FBBC8D4001C034A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE45A2F1FBBC8D4001C034A /* Assets.xcassets */; };
+		8CE45A331FBBC8D4001C034A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE45A311FBBC8D4001C034A /* LaunchScreen.storyboard */; };
+		8CE45A361FBBC8D4001C034A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE45A351FBBC8D4001C034A /* main.m */; };
+		8CE45A3A1FBBC8FC001C034A /* OAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEF6411FB2ACD4000FD85A /* OAuth.framework */; };
+		8CE45A3B1FBBC8FC001C034A /* OAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEF6411FB2ACD4000FD85A /* OAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CEB4FE21FB77146009A4A21 /* OAuthConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CEB4FE31FB77146009A4A21 /* OAuthConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */; };
 		8CFEF6461FB2ACD6000FD85A /* OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFEF6441FB2ACD5000FD85A /* OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CE45A3C1FBBC8FC001C034A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CFEF6381FB2ACD2000FD85A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CFEF6401FB2ACD4000FD85A;
+			remoteInfo = OAuth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8CE45A3E1FBBC8FC001C034A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8CE45A3B1FBBC8FC001C034A /* OAuth.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8C26CF461FB39D180097D5FA /* OAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthCredential.h; sourceTree = "<group>"; };
@@ -29,6 +61,16 @@
 		8CE45A191FBB97F9001C034A /* NSDictionary+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OAuth.h"; sourceTree = "<group>"; };
 		8CE45A1A1FBB97FA001C034A /* NSString+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OAuth.h"; sourceTree = "<group>"; };
 		8CE45A1B1FBB97FA001C034A /* NSString+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OAuth.m"; sourceTree = "<group>"; };
+		8CE45A241FBBC8D3001C034A /* Example-500px.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-500px.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CE45A261FBBC8D3001C034A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8CE45A271FBBC8D3001C034A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8CE45A291FBBC8D3001C034A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8CE45A2A1FBBC8D4001C034A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CE45A2D1FBBC8D4001C034A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8CE45A2F1FBBC8D4001C034A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CE45A321FBBC8D4001C034A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8CE45A341FBBC8D4001C034A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CE45A351FBBC8D4001C034A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CEB4FE01FB77146009A4A21 /* OAuthConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConfiguration.h; sourceTree = "<group>"; };
 		8CEB4FE11FB77146009A4A21 /* OAuthConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthConfiguration.m; sourceTree = "<group>"; };
 		8CFEF6411FB2ACD4000FD85A /* OAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +79,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8CE45A211FBBC8D3001C034A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CE45A3A1FBBC8FC001C034A /* OAuth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CFEF63D1FB2ACD4000FD85A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,10 +108,27 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		8CE45A251FBBC8D3001C034A /* Example-500px */ = {
+			isa = PBXGroup;
+			children = (
+				8CE45A261FBBC8D3001C034A /* AppDelegate.h */,
+				8CE45A271FBBC8D3001C034A /* AppDelegate.m */,
+				8CE45A291FBBC8D3001C034A /* ViewController.h */,
+				8CE45A2A1FBBC8D4001C034A /* ViewController.m */,
+				8CE45A2C1FBBC8D4001C034A /* Main.storyboard */,
+				8CE45A2F1FBBC8D4001C034A /* Assets.xcassets */,
+				8CE45A311FBBC8D4001C034A /* LaunchScreen.storyboard */,
+				8CE45A341FBBC8D4001C034A /* Info.plist */,
+				8CE45A351FBBC8D4001C034A /* main.m */,
+			);
+			path = "Example-500px";
+			sourceTree = "<group>";
+		};
 		8CFEF6371FB2ACD1000FD85A = {
 			isa = PBXGroup;
 			children = (
 				8CFEF6431FB2ACD5000FD85A /* OAuth */,
+				8CE45A251FBBC8D3001C034A /* Example-500px */,
 				8CFEF6421FB2ACD4000FD85A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				8CFEF6411FB2ACD4000FD85A /* OAuth.framework */,
+				8CE45A241FBBC8D3001C034A /* Example-500px.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +177,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8CE45A231FBBC8D3001C034A /* Example-500px */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CE45A391FBBC8D4001C034A /* Build configuration list for PBXNativeTarget "Example-500px" */;
+			buildPhases = (
+				8CE45A201FBBC8D3001C034A /* Sources */,
+				8CE45A211FBBC8D3001C034A /* Frameworks */,
+				8CE45A221FBBC8D3001C034A /* Resources */,
+				8CE45A3E1FBBC8FC001C034A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CE45A3D1FBBC8FC001C034A /* PBXTargetDependency */,
+			);
+			name = "Example-500px";
+			productName = "Example-500px";
+			productReference = 8CE45A241FBBC8D3001C034A /* Example-500px.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8CFEF6401FB2ACD4000FD85A /* OAuth */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CFEF6491FB2ACD6000FD85A /* Build configuration list for PBXNativeTarget "OAuth" */;
@@ -136,6 +223,10 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Mark Gage";
 				TargetAttributes = {
+					8CE45A231FBBC8D3001C034A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					8CFEF6401FB2ACD4000FD85A = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -156,11 +247,22 @@
 			projectRoot = "";
 			targets = (
 				8CFEF6401FB2ACD4000FD85A /* OAuth */,
+				8CE45A231FBBC8D3001C034A /* Example-500px */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8CE45A221FBBC8D3001C034A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CE45A331FBBC8D4001C034A /* LaunchScreen.storyboard in Resources */,
+				8CE45A301FBBC8D4001C034A /* Assets.xcassets in Resources */,
+				8CE45A2E1FBBC8D4001C034A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CFEF63F1FB2ACD4000FD85A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,6 +273,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8CE45A201FBBC8D3001C034A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CE45A2B1FBBC8D4001C034A /* ViewController.m in Sources */,
+				8CE45A361FBBC8D4001C034A /* main.m in Sources */,
+				8CE45A281FBBC8D3001C034A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CFEF63C1FB2ACD4000FD85A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,7 +297,64 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8CE45A3D1FBBC8FC001C034A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CFEF6401FB2ACD4000FD85A /* OAuth */;
+			targetProxy = 8CE45A3C1FBBC8FC001C034A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8CE45A2C1FBBC8D4001C034A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CE45A2D1FBBC8D4001C034A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8CE45A311FBBC8D4001C034A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CE45A321FBBC8D4001C034A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8CE45A371FBBC8D4001C034A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 762W2U8JVP;
+				INFOPLIST_FILE = "Example-500px/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gage.framework.Example-500px";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8CE45A381FBBC8D4001C034A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 762W2U8JVP;
+				INFOPLIST_FILE = "Example-500px/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gage.framework.Example-500px";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8CFEF6471FB2ACD6000FD85A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,6 +508,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8CE45A391FBBC8D4001C034A /* Build configuration list for PBXNativeTarget "Example-500px" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CE45A371FBBC8D4001C034A /* Debug */,
+				8CE45A381FBBC8D4001C034A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8CFEF63B1FB2ACD2000FD85A /* Build configuration list for PBXProject "OAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

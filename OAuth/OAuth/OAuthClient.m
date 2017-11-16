@@ -21,8 +21,9 @@
 
 @implementation OAuthClient
 
+ static OAuthClient *_sharedInstance = nil;
+
 + (OAuthClient *)sharedInstance {
-    static OAuthClient *_sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
@@ -39,10 +40,18 @@
 
 - (void)authorizeUsingOAuthWithRequestTokenPath:(NSString *)requestTokenPath userAuthorizationPath:(NSString *)userAuthorizationPath accessTokenPath:(NSString *)accessTokenPath callbackURLPath:(NSString *)callBackPath completion:(Success)completion {
     
-    [self.configuration setRequestTokenPath:requestTokenPath authorizationPath:userAuthorizationPath accessTokenPath:accessTokenPath];
+    [self.configuration setRequestTokenPath:requestTokenPath
+                          authorizationPath:userAuthorizationPath
+                            accessTokenPath:accessTokenPath];
+    self.configuration.callBackURLString = callBackPath;
     
     NSURL *requestTokenURL = [NSURL URLWithString:[self.configuration requestTokenURLString]];
-    NSDictionary *extraAuthParamaters = @{@"oauth_callback" : callBackPath};
+    
+    NSDictionary *extraAuthParamaters;
+    if (callBackPath) {
+        extraAuthParamaters = @{@"oauth_callback" : callBackPath};
+    }
+    
     
     NSURLRequest *request = [self authorizationRequestWithURL:requestTokenURL extraAuthParamaters:extraAuthParamaters];
     
@@ -58,9 +67,8 @@
             return;
         }
         
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
-                                                          options:NSJSONReadingMutableContainers
-                                                            error:nil];
+        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSDictionary *result = [NSDictionary dictionaryFromQueryString:dataString];
         
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -104,18 +112,6 @@
         if (completion) {
             completion(YES, nil);
         }
-        
-        /*NSString *testURL = [NSString stringWithFormat:@"%@%@?oauth_token=%@&oauth_callback=%@",self.baseURL,userAuthorizationPath,self.credential.accessToken,callBackPath];
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:testURL]
-                                               options:@{}
-                                     completionHandler:^(BOOL success) {
-                                         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidOpenFromURL:) name:UIApplicationLaunchOptionsLocalNotificationKey object:nil];
-                                         NSLog(@"open url");
-                                     }];
-        }];*/
-        
     }];
     [task resume];
     
@@ -140,8 +136,8 @@
         }
         
         id responseJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:nil];
         
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -202,8 +198,8 @@
                                          @"oauth_version" : @"1.0",
                                          @"oauth_signature_method" : @"HMAC-SHA1"} mutableCopy];
     
-    if (self.credential.accessToken) {
-        authParams[@"oauth_token"] = self.credential.accessToken;
+    if (self.credential.token) {
+        authParams[@"oauth_token"] = self.credential.token;
     }
     
     if ([extraParameter count]) {
@@ -260,6 +256,84 @@
     return [tmpStr copy];
 }
 
+- (void)authorize {
+    NSString *authorizeURLString = [NSString stringWithFormat:@"%@?oauth_token=%@", [self.configuration authorizationURLString],self.credential.token];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:authorizeURLString]
+                                       options:@{}
+                             completionHandler:^(BOOL success) {}];
+}
+
+- (void)authorizationOpenFromURL:(NSURL *)authURL completion:(Success)completion {
+    NSString *callbackScheme = [self.configuration.callBackURLString stringByReplacingOccurrencesOfString:@"//" withString:@"?"];
+    NSString *query = [[authURL absoluteString] stringByReplacingOccurrencesOfString:callbackScheme withString:@""];
+
+    NSMutableDictionary *paramaeters = [[NSDictionary dictionaryFromQueryString:query] mutableCopy];
+    if (paramaeters) {
+        NSURL *accessTokenURL = [NSURL URLWithString:[self.configuration accessTokenURLString]];
+        
+        NSURLRequest *request = [self authorizationRequestWithURL:accessTokenURL extraAuthParamaters:paramaeters];
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (error) {
+                if (completion) {
+                    completion(NO, error);
+                }
+                NSLog(@"There was an error");
+                return;
+            }
+            
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSDictionary *responseDictionary = [NSDictionary dictionaryFromQueryString:dataString];
+            
+            if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                
+                if ([httpResponse statusCode]!=200) {
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : dataString};
+                    NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:1 userInfo:userInfo];
+                    
+                    if (completion) {
+                        completion(NO, error);
+                    }
+                    return;
+                }
+            } else {
+                NSDictionary *userInfo = @{NSLocalizedDescriptionKey : @"Didn't receive expected HTTP response."};
+                NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:3 userInfo:userInfo];
+                
+                if (completion) {
+                    completion(NO, error);
+                }
+                return;
+            }
+            
+            NSString *token = responseDictionary[@"oauth_token"];
+            NSString *tokenSecret = responseDictionary[@"oauth_token_secret"];
+            
+            if (![token length] || ![tokenSecret length]) {
+                [self.credential setRequestToken:nil requestTokenSecret:nil];
+                
+                if (completion) {
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : @"Missing token info in response"};
+                    NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:2 userInfo:userInfo];
+                    
+                    completion(NO, error);
+                }
+                return;
+            }
+            
+            [self.credential setAccessToken:token accessTokenSecret:tokenSecret];
+            completion(YES, nil);
+        }];
+        
+        [task resume];
+    }
+}
+
 - (NSDictionary *)parametersFromRequest:(NSURLRequest *)request
 {
     NSMutableDictionary *extraParams = [NSMutableDictionary dictionary];
@@ -296,7 +370,7 @@
                                [NSString stringFromUrlEncodedString:path],
                                [NSString stringFromUrlEncodedString:authParamString]];
     
-    NSString *signatureSecret = [NSString stringWithFormat:@"%@&%@", self.credential.consumerSecret, self.credential.accessTokenSecret ?: @""];
+    NSString *signatureSecret = [NSString stringWithFormat:@"%@&%@", self.credential.consumerSecret, self.credential.tokenSecret ?: @""];
     NSData *sigbase = [signatureBase dataUsingEncoding:NSUTF8StringEncoding];
     NSData *secret = [signatureSecret dataUsingEncoding:NSUTF8StringEncoding];
     

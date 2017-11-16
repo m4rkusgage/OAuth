@@ -11,8 +11,8 @@
 @interface OAuthCredential ()
 @property (copy, nonatomic) NSString *consumerKey;
 @property (copy, nonatomic) NSString *consumerSecret;
-@property (copy, nonatomic) NSString *requestToken;
-@property (copy, nonatomic) NSString *requestTokenSecret;
+@property (copy, nonatomic) NSString *token;
+@property (copy, nonatomic) NSString *tokenSecret;
 @end
 
 @implementation OAuthCredential
@@ -27,10 +27,14 @@
 }
 
 - (void)setRequestToken:(NSString *)requestToken requestTokenSecret:(NSString *)requestTokenSecret {
-    self.requestToken = requestToken;
-    self.requestTokenSecret = requestTokenSecret;
+    self.token = requestToken;
+    self.tokenSecret = requestTokenSecret;
 }
 
+- (void)setAccessToken:(NSString *)accessToken accessTokenSecret:(NSString *)accessTokenSecret {
+    self.token = accessToken;
+    self.tokenSecret = accessTokenSecret;
+}
 - (BOOL)isExpired {
     return [self.expirationDate timeIntervalSinceNow] <= 0.0;
 }

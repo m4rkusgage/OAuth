@@ -28,4 +28,7 @@ typedef void(^Completion)(id result, NSError *error);
                 forHTTPMethod:(NSString *)httpMethod
               extraParameters:(NSDictionary *)extraParameters
                    completion:(Completion)completion;
+
+- (void)authorize;
+- (void)authorizationOpenFromURL:(NSURL *)authURL completion:(Success)completion;
 @end
